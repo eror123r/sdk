@@ -47,7 +47,6 @@ namespace Microsoft.DotNet.Cli
         public const string MTPTarget = "_MTPBuild";
 
         public const string TestTraceLoggingEnvVar = "DOTNET_CLI_TEST_TRACEFILE";
-        public const string NetCoreIdentifier = ".NETCoreApp";
     }
 
     internal static class TestStates
@@ -93,11 +92,8 @@ namespace Microsoft.DotNet.Cli
         internal const string TargetPath = "TargetPath";
         internal const string ProjectFullPath = "MSBuildProjectFullPath";
         internal const string RunSettingsFilePath = "RunSettingsFilePath";
-        internal const string IsExecutable = "_IsExecutable";
-        internal const string UseAppHost = "UseAppHost";
-        internal const string TargetFrameworkIdentifier = "TargetFrameworkIdentifier";
-        internal const string TargetDir = "TargetDir";
-        internal const string AssemblyName = "AssemblyName";
-        internal const string NativeExecutableExtension = "_NativeExecutableExtension";
+        internal const string RunCommand = "RunCommand";
+        internal const string RunArguments = "RunArguments";
+        internal const string RunWorkingDirectory = "RunWorkingDirectory";
     }
 }

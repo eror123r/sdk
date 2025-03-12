@@ -25,6 +25,9 @@ namespace Microsoft.DotNet.Cli
                     Path.GetDirectoryName(solutionModel.Description) :
                     SolutionAndProjectUtility.GetRootDirectory(solutionFilePath);
 
+            // TODO: We should pass a binary logger if the dotnet test invocation passed one.
+            // We will take the same file name but append something to it, like `-dotnet-test-evaluation`
+            // Tracked by https://github.com/dotnet/sdk/issues/47494
             ConcurrentBag<TestModule> projects = GetProjectsProperties(new ProjectCollection(), solutionModel.SolutionProjects.Select(p => Path.Combine(rootDirectory, p.FilePath)), buildOptions);
 
             isBuiltOrRestored |= !projects.IsEmpty;
@@ -36,6 +39,9 @@ namespace Microsoft.DotNet.Cli
         {
             bool isBuiltOrRestored = BuildOrRestoreProjectOrSolution(projectFilePath, buildOptions);
 
+            // TODO: We should pass a binary logger if the dotnet test invocation passed one.
+            // We will take the same file name but append something to it, like `-dotnet-test-evaluation`
+            // Tracked by https://github.com/dotnet/sdk/issues/47494
             IEnumerable<TestModule> projects = SolutionAndProjectUtility.GetProjectProperties(projectFilePath, GetGlobalProperties(buildOptions), new ProjectCollection());
 
             isBuiltOrRestored |= projects.Any();
